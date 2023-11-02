@@ -1,1 +1,55 @@
-/
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi página</title>
+</head>
+<body>
+    <h1 id="titulo">Este es el título original</h1>
+    <button onclick="cambiarTitulo()">Cambiar Título</button>
+
+
+</body>
+</html>
+
+
+
+   body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+
+
+
+        function cambiarTitulo() {
+            // Lista de títulos
+            var titulos = ['Este es el título 1', 'Este es el título 2', 'Este es el título 3'];
+            // Índice del título actual
+            if (typeof cambiarTitulo.indiceActual === 'undefined') {
+                cambiarTitulo.indiceActual = 0;
+            }
+
+            // Aumentamos el índice actual
+            cambiarTitulo.indiceActual++;
+            // Si el índice actual es igual al número de títulos, lo reseteamos a 0
+            if (cambiarTitulo.indiceActual === titulos.length) {
+                cambiarTitulo.indiceActual = 0;
+            }
+
+            // Obtenemos el elemento del título por su ID
+            var titulo = document.getElementById('titulo');
+            // Cambiamos el contenido del título
+            titulo.innerHTML = titulos[cambiarTitulo.indiceActual];
+        }
